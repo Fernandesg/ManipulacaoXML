@@ -1,6 +1,6 @@
 import os
 from xml.dom import minidom
-import PySimpleGUIWeb as sg
+import PySimpleGUIQt as sg
 
 layout=[
    [sg.Text('Selecionar pasta com os arquivos:')],
@@ -42,11 +42,3 @@ while True:
                 file_newname_newfile = os.path.join(diretorio, nomeCompleto+'.pdf')
                 os.rename(file_oldname, file_newname_newfile)
             window['-AVISO-'].update('ARQUIVOS RENOMEADOS!')
-#     print(fornecedor)
-#     print(nNF)
-#     print(chaveNF)
-#     print(nomeCompleto)
-#     # print(arquivos)
-#     print('-='*30)
-
-# obter_arquivos_xml(diretorio)
