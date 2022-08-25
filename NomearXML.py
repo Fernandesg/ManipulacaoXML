@@ -3,11 +3,17 @@ from xml.dom import minidom
 import PySimpleGUIQt as sg
 import smtplib
 
-usuario = 'pythonautoriza@gmail.com'
-senha = 'agyhotcrzcaoveza'
+credencialEmail = open('credencialEmail.txt', 'r')
+loginEmail = []
+
+for linhas in credencialEmail:
+    linhas = linhas.strip()
+    loginEmail.append(linhas)
+usuario_email = loginEmail[0][17:-1]
+senha_email = loginEmail[1][15:-1]
 s = smtplib.SMTP('smtp.gmail.com: 587')
 s.starttls()
-s.login(usuario, senha)
+s.login(usuario_email, senha_email)
 
 layout=[
     [sg.Text('Selecionar pasta com os arquivos:')],
