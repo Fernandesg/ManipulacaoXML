@@ -17,7 +17,7 @@ s.login(usuario_email, senha_email)
 
 layout=[
     [sg.Text('Selecionar pasta com os arquivos:')],
-    [sg.Input('',key='-CAMINHOPASTA-'),sg.FolderBrowse()],
+    [sg.Input('',key='-CAMINHOPASTA-',enable_events=True),sg.FolderBrowse(enable_events=True)],
     [sg.Stretch() ,sg.Text('Inserir número da ND:'), sg.Stretch()],
     [sg.Stretch() ,sg.Input(key='-NUMND-'), sg.Stretch()],
     [sg.Stretch(), sg.Button('RENOMEAR', key='-RENOMEAR-' ,size=(15,1)), sg.Stretch()],
@@ -36,6 +36,8 @@ def obter_arquivos_xml(diretorio):
 while True:
     event, values = window.read()
     diretorio = values['-CAMINHOPASTA-'] 
+    if event == '-CAMINHOPASTA-':
+        window['-AVISO-'].update('')
     if event == None:
         break
     if event == sg.WIN_CLOSED:
