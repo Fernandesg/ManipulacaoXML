@@ -3,7 +3,7 @@ from xml.dom import minidom
 import PySimpleGUIQt as sg
 import smtplib
 
-credencialEmail = open('credencialEmail.txt', 'r')
+credencialEmail = open('credencialEmail_XML.txt', 'r')
 loginEmail = []
 
 for linhas in credencialEmail:
